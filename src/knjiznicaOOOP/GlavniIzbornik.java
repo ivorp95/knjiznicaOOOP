@@ -41,27 +41,27 @@ public class GlavniIzbornik {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Posudba");
 		btnNewButton.setBounds(57, 25, 117, 62);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Vracanje");
 		btnNewButton_1.setBounds(57, 105, 117, 62);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("Novi korisnik");
 		btnNewButton_2.setBounds(57, 190, 117, 62);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("New button");
+		JButton btnNewButton_3 = new JButton("Ispis ");
 		btnNewButton_3.setBounds(257, 25, 117, 62);
 		frame.getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_3_1 = new JButton("New button");
+		JButton btnNewButton_3_1 = new JButton("Pretraga");
 		btnNewButton_3_1.setBounds(257, 105, 117, 62);
 		frame.getContentPane().add(btnNewButton_3_1);
 		
-		JButton btnNewButton_3_2 = new JButton("New button");
+		JButton btnNewButton_3_2 = new JButton("Brisanje korisnika");
 		btnNewButton_3_2.setBounds(257, 190, 117, 62);
 		frame.getContentPane().add(btnNewButton_3_2);
 	}
