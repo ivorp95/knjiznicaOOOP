@@ -1,9 +1,12 @@
 package knjiznicaOOOP;
+import knjiznicaOOOP.*;
 
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GlavniIzbornik {
 
@@ -42,10 +45,22 @@ public class GlavniIzbornik {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Unos Clana");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UnosClana uc = new UnosClana();
+				uc.showWindow();
+			}
+		});
 		btnNewButton.setBounds(57, 25, 117, 62);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Unos Knjige");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UnosKnjige uk= new UnosKnjige();
+				uk.showWindow();
+				}
+		});
 		btnNewButton_1.setBounds(57, 105, 117, 62);
 		frame.getContentPane().add(btnNewButton_1);
 		
