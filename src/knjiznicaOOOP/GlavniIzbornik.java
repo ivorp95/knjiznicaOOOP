@@ -2,8 +2,8 @@ package knjiznicaOOOP;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class GlavniIzbornik {
 
