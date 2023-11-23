@@ -41,27 +41,27 @@ public class GlavniIzbornik {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Posudba");
+		JButton btnNewButton = new JButton("Unos Clana");
 		btnNewButton.setBounds(57, 25, 117, 62);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Vracanje");
+		JButton btnNewButton_1 = new JButton("Unos Knjige");
 		btnNewButton_1.setBounds(57, 105, 117, 62);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Novi korisnik");
+		JButton btnNewButton_2 = new JButton("Unos Posudbe");
 		btnNewButton_2.setBounds(57, 190, 117, 62);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Ispis ");
+		JButton btnNewButton_3 = new JButton("Ispis Clanova");
 		btnNewButton_3.setBounds(257, 25, 117, 62);
 		frame.getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_3_1 = new JButton("Pretraga");
+		JButton btnNewButton_3_1 = new JButton("Ispis Knjiga");
 		btnNewButton_3_1.setBounds(257, 105, 117, 62);
 		frame.getContentPane().add(btnNewButton_3_1);
 		
-		JButton btnNewButton_3_2 = new JButton("Brisanje korisnika");
+		JButton btnNewButton_3_2 = new JButton("Preged Posudbi");
 		btnNewButton_3_2.setBounds(257, 190, 117, 62);
 		frame.getContentPane().add(btnNewButton_3_2);
 	}
