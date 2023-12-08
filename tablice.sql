@@ -31,3 +31,14 @@ select * from clanOOOP;
 select * from knjigaOOOP;
 
 #autor i knjiga bi trebali imati agregaciju jer nije zadovoljena normalna forma 1NF i 3NF
+
+
+create table posudbaOOOP(
+id_posudba int auto_increment primary key not null,
+clan_id int not null,
+knjiga_id int not null,
+datum_posudbe date not null,
+datum_vracanja date not null,
+foreign key (knjiga_id) references knjigaOOOP(knjiga_id) on delete restrict on update cascade,
+foreign key (clan_id) references clanOOOP(clan_id) on delete cascade on update 
+);
