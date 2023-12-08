@@ -1,13 +1,18 @@
 package knjiznicaOOOP;
 
 import java.awt.EventQueue;
-
+import java.sql.*;
+import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+//import com.mysql.cj.xdevapi.Statement;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.awt.event.ActionEvent;
 
 public class PregledClana {
@@ -46,11 +51,35 @@ public class PregledClana {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(41, 27, 456, 205);
+		frame.getContentPane().add(scrollPane);
 		
 		tablica = new JTable();
 		tablica.setBounds(17, 19, 414, 184);
 		frame.getContentPane().add(tablica);
 		
+		tablica = new JTable();
+		scrollPane.setViewportView(tablica);
+		tablica.setModel(new DefaultTableModel(
+			new Object[][] {
+
+			},
+			new String[] {
+			"Id clana", "Ime", "Prezime", "Broj mobitela"
+			}
+			) {
+				boolean[] columnEditables = new boolean[] {
+					false, false, false, false
+				};
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			});
+
+
+
 		JButton btnNewButton = new JButton("Popuni podatcima");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,8 +88,22 @@ public class PregledClana {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
 					String upit="SELECT * FROM clanOOOP";
+					Statement stmt=con.createStatement();
+					ResultSet rs=stmt.executeQuery(upit);
+
+					DefaultTableModel model = (DefaultTableModel) tablica.getModel();
+					model.setRowCount(0);
+					
+					while (rs.next()){
+						int clan_id=rs.getInt(1);
+						String ime=rs.getString(2);
+						String prezime=rs.getString(3);
+						String brojMob=rs.getString(4);
+						model.addRow(new Object[] {clan_id, ime, prezime, brojMob});
+						}
 				}
 				catch(Exception e1) {
+					JOptionPane.showMessageDialog(null, "Greška servera!");
 					
 				}
 				
