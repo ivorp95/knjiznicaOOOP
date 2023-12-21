@@ -46,6 +46,7 @@ public class PregledClana {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings("serial")
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 520, 300);
@@ -109,7 +110,54 @@ public class PregledClana {
 				
 			}
 		});
-		btnNewButton.setBounds(141, 225, 175, 29);
+		btnNewButton.setBounds(41, 237, 175, 29);
 		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnIzbirisiClana = new JButton("Izbirisi clana");
+		btnIzbirisiClana.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = (DefaultTableModel) tablica.getModel();
+				//model.setRowCount(0);
+				int odabraniRedak=tablica.getSelectedRow();
+				if (odabraniRedak>=0) {
+					try {
+						//uzimamo podatke iz tablice i parsiramo u lokalne varijable
+						String ime=(String)tablica.getValueAt(odabraniRedak, 1);
+						String prezime=(String)tablica.getValueAt(odabraniRedak, 2);
+						String brojMob=(String)tablica.getValueAt(odabraniRedak, 3);
+						
+						Class.forName("com.mysql.cj.jdbc.Driver");
+						Connection con=DriverManager.getConnection("jdbc:mysql://student.veleri.hr/ipangos?serverTimezone=UTC","ipangos","11");
+						
+						String upit="DELETE FROM clanOOOP WHERE ime=? AND prezime=? AND broj_mob=?";
+						PreparedStatement ps=con.prepareStatement(upit);
+						
+						ps.setString(1, ime);
+						ps.setString(2, prezime);
+						ps.setString(3, brojMob);
+						
+						int obrisaniRedak=ps.executeUpdate();
+						
+						if(obrisaniRedak==1) {
+							DefaultTableModel model1 = (DefaultTableModel) tablica.getModel();
+							model1.removeRow(odabraniRedak);
+							JOptionPane.showMessageDialog(null, "Clan uspjesno obrisan");
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Brisanje neuspjesno");
+						}
+						
+					}
+					catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Redak nije odabran");
+				}
+			}
+		});
+		btnIzbirisiClana.setBounds(310, 237, 175, 29);
+		frame.getContentPane().add(btnIzbirisiClana);
 	}
 }
