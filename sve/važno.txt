@@ -1,0 +1,4 @@
+http://www.java2s.com/Code/Jar/j/Downloadjbcryptjar.htm
+
+Preuzeti klasu s ove web stranice i dodati je kao što smo dodavali JDBC u projekt.
+Dodatak je u .jar formatu!!! (odzipati)
